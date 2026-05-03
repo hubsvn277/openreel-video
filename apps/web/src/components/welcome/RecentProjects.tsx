@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
+import { useTranslation } from "react-i18next";
 import { Clock, Trash2, Film } from "lucide-react";
 import {
   checkForRecovery,
@@ -21,6 +22,7 @@ interface RecentProjectsProps {
 export const RecentProjects: React.FC<RecentProjectsProps> = ({
   onProjectSelected,
 }) => {
+  const { t } = useTranslation();
   const [recentProjects, setRecentProjects] = useState<RecentProject[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [loadingProjectId, setLoadingProjectId] = useState<string | null>(null);
@@ -97,10 +99,10 @@ export const RecentProjects: React.FC<RecentProjectsProps> = ({
       (now.getTime() - date.getTime()) / (1000 * 60 * 60 * 24),
     );
 
-    if (diffDays === 0) return "Today";
-    if (diffDays === 1) return "Yesterday";
-    if (diffDays < 7) return `${diffDays} days ago`;
-    if (diffDays < 30) return `${Math.floor(diffDays / 7)} weeks ago`;
+    if (diffDays === 0) return t("recentProjects.today");
+    if (diffDays === 1) return t("recentProjects.yesterday");
+    if (diffDays < 7) return t("recentProjects.daysAgo", { count: diffDays });
+    if (diffDays < 30) return t("recentProjects.weeksAgo", { count: Math.floor(diffDays / 7) });
 
     return date.toLocaleDateString();
   };
@@ -110,7 +112,7 @@ export const RecentProjects: React.FC<RecentProjectsProps> = ({
       <div className="flex flex-col items-center justify-center py-20">
         <div className="w-8 h-8 border-2 border-primary/30 border-t-primary rounded-full animate-spin mb-4" />
         <p className="text-sm text-text-secondary">
-          Loading recent projects...
+          {t("recentProjects.loading")}
         </p>
       </div>
     );
@@ -123,11 +125,10 @@ export const RecentProjects: React.FC<RecentProjectsProps> = ({
           <Clock size={24} className="text-text-muted" />
         </div>
         <h3 className="text-base font-medium text-text-primary mb-2">
-          No Recent Projects
+          {t("recentProjects.noProjects")}
         </h3>
         <p className="text-sm text-text-muted text-center max-w-md">
-          Your recently opened projects will appear here. Start a new project or
-          use a template to get started.
+          {t("recentProjects.noProjectsHint")}
         </p>
       </div>
     );
@@ -137,7 +138,7 @@ export const RecentProjects: React.FC<RecentProjectsProps> = ({
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <h3 className="text-sm font-medium text-text-primary">
-          Recent Projects ({recentProjects.length})
+          {t("recentProjects.count", { count: recentProjects.length })}
         </h3>
       </div>
 

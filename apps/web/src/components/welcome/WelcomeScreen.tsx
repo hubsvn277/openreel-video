@@ -1,4 +1,5 @@
 import { useState, useCallback, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import {
   Clock,
   Layers,
@@ -17,6 +18,7 @@ import { RecentProjects } from "./RecentProjects";
 import { useRouter } from "../../hooks/use-router";
 import { useEditorPreload } from "../../hooks/useEditorPreload";
 import { useAnalytics, AnalyticsEvents } from "../../hooks/useAnalytics";
+import { LangSelect } from "../ui/LangSelect";
 
 interface FormatOption {
   id: string;
@@ -59,72 +61,12 @@ const FORMAT_OPTIONS: FormatOption[] = [
 ];
 
 const OpenReelLogo: React.FC<{ className?: string }> = ({ className = "" }) => (
-  <svg
-    viewBox="0 0 490 490"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
+  <img
+    src="/logo.svg"
+    alt="Logo"
     className={className}
-  >
-    <path
-      d="M245 24.5C123.223 24.5 24.5 123.223 24.5 245s98.723 220.5 220.5 220.5 220.5-98.723 220.5-220.5S366.777 24.5 245 24.5Z"
-      stroke="currentColor"
-      strokeWidth="30.625"
-    />
-    <g>
-      <path
-        d="M245 98v73.5"
-        stroke="currentColor"
-        strokeWidth="24.5"
-        strokeLinecap="round"
-      />
-      <path
-        d="M392 245h-73.5"
-        stroke="currentColor"
-        strokeWidth="24.5"
-        strokeLinecap="round"
-      />
-      <path
-        d="M245 392v-73.5"
-        stroke="currentColor"
-        strokeWidth="24.5"
-        strokeLinecap="round"
-      />
-      <path
-        d="M98 245h73.5"
-        stroke="currentColor"
-        strokeWidth="24.5"
-        strokeLinecap="round"
-      />
-      <path
-        d="m348.941 141.059-51.965 51.965"
-        stroke="currentColor"
-        strokeWidth="24.5"
-        strokeLinecap="round"
-      />
-      <path
-        d="m348.941 348.941-51.965-51.965"
-        stroke="currentColor"
-        strokeWidth="24.5"
-        strokeLinecap="round"
-      />
-      <path
-        d="m141.059 348.941 51.965-51.965"
-        stroke="currentColor"
-        strokeWidth="24.5"
-        strokeLinecap="round"
-      />
-      <path
-        d="m141.059 141.059 51.965 51.965"
-        stroke="currentColor"
-        strokeWidth="24.5"
-        strokeLinecap="round"
-      />
-    </g>
-    <path
-      d="M294 245a49 49 0 0 1-49 49 49 49 0 0 1-49-49 49 49 0 0 1 98 0"
-      fill="currentColor"
-    />
-  </svg>
+    style={{ objectFit: "contain" }}
+  />
 );
 
 type ViewMode = "home" | "templates" | "recent";
@@ -134,6 +76,7 @@ interface WelcomeScreenProps {
 }
 
 export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ initialTab }) => {
+  const { t } = useTranslation();
   const setSkipWelcomeScreen = useUIStore(
     (state) => state.setSkipWelcomeScreen,
   );
@@ -205,9 +148,9 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ initialTab }) => {
             onClick={() => setViewMode("home")}
           >
             <ArrowRight className="rotate-180" size={16} />
-            Back
+            {t("welcome.back")}
           </Button>
-          <h2 className="text-sm font-medium text-text-primary">Templates</h2>
+          <h2 className="text-sm font-medium text-text-primary">{t("welcome.templates")}</h2>
           <div className="w-16" />
         </header>
         <div className="flex-1 overflow-y-auto p-6">
@@ -227,10 +170,10 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ initialTab }) => {
             onClick={() => setViewMode("home")}
           >
             <ArrowRight className="rotate-180" size={16} />
-            Back
+            {t("welcome.back")}
           </Button>
           <h2 className="text-sm font-medium text-text-primary">
-            Recent Projects
+            {t("welcome.recentTitle")}
           </h2>
           <div className="w-16" />
         </header>
@@ -254,18 +197,18 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ initialTab }) => {
                 <OpenReelLogo className="w-full h-full" />
               </div>
               <span className="text-xl font-semibold text-text-primary tracking-tight">
-                Open Reel Video
+                {t("toolbar.appName")}
               </span>
             </div>
 
             <h1 className="text-4xl sm:text-5xl font-bold text-text-primary tracking-tight mb-3">
-              From idea to export.
+              {t("welcome.tagline")}
             </h1>
             <p className="text-xl text-text-secondary mb-8">
-              In your browser.
+              {t("welcome.taglineSub")}
             </p>
             <p className="text-base text-text-muted max-w-md">
-              Pick a format and start creating. You can change this anytime.
+              {t("welcome.formatHint")}
             </p>
           </div>
 
@@ -310,10 +253,10 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ initialTab }) => {
                     </div>
 
                     <h3 className="text-lg font-semibold text-text-primary mb-1">
-                      {option.label}
+                      {t(`formats.${option.id}`)}
                     </h3>
                     <p className="text-sm text-text-muted mb-3">
-                      {option.description}
+                      {t(`formats.${option.id}Desc`)}
                     </p>
                     <span className="text-xs font-mono text-text-muted/70 bg-background-tertiary px-2 py-1 rounded">
                       {option.dimensions}
@@ -328,7 +271,7 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ initialTab }) => {
                     transition-all duration-200
                   `}
                   >
-                    Start creating
+                    {t("welcome.startCreating")}
                     <ArrowRight size={14} />
                   </div>
                 </button>
@@ -343,7 +286,7 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ initialTab }) => {
               className="rounded-xl"
             >
               <Layers size={16} />
-              Browse templates
+              {t("welcome.browseTemplates")}
             </Button>
             <Button
               variant="outline"
@@ -351,7 +294,7 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ initialTab }) => {
               className="rounded-xl"
             >
               <Clock size={16} />
-              Recent projects
+              {t("welcome.recentProjects")}
             </Button>
             <Button
               variant="outline"
@@ -359,7 +302,7 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ initialTab }) => {
               className="rounded-xl"
             >
               <FolderOpen size={16} />
-              Open editor
+              {t("welcome.openEditor")}
             </Button>
           </div>
         </div>
@@ -375,7 +318,7 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ initialTab }) => {
               htmlFor="skip-welcome"
               className="text-xs text-text-muted cursor-pointer"
             >
-              Skip on startup
+              {t("welcome.skipOnStartup")}
             </Label>
           </div>
 
@@ -386,8 +329,12 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ initialTab }) => {
             <kbd className="px-1.5 py-0.5 bg-background-tertiary border border-border rounded text-text-muted font-mono text-[10px]">
               Esc
             </kbd>{" "}
-            to skip
+            {t("welcome.pressEscToSkip")}
           </p>
+
+          <span className="text-text-muted/30">·</span>
+
+          <LangSelect />
         </div>
       </div>
     </div>

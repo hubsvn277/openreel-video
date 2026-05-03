@@ -1,0 +1,53 @@
+{
+  "header": {
+    "appName": "Hubs Image",
+    "appDesc": "Trình chỉnh sửa đồ họa chuyên nghiệp",
+    "openProject": "Mở Dự Án"
+  },
+  "newProject": {
+    "title": "Tạo dự án mới",
+    "customSize": "Kích thước tùy chỉnh",
+    "customSizeDesc": "Đặt kích thước",
+    "customDimensions": "Kích thước tùy chỉnh",
+    "widthPx": "Chiều rộng (px)",
+    "heightPx": "Chiều cao (px)",
+    "createDesign": "Tạo thiết kế"
+  },
+  "categories": {
+    "all": "Tất cả",
+    "socialMedia": "Mạng xã hội",
+    "presentation": "Trình chiếu",
+    "print": "In ấn",
+    "desktop": "Máy tính",
+    "mobile": "Di động",
+    "logo": "Logo"
+  },
+  "recentProjects": {
+    "title": "Dự Án Gần Đây",
+    "noProjects": "Chưa có dự án nào",
+    "noProjectsHint": "Tạo dự án mới để bắt đầu",
+    "justNow": "Vừa xong",
+    "minutesAgo": "{{count}} phút trước",
+    "oneHourAgo": "1 giờ trước",
+    "hoursAgo": "{{count}} giờ trước",
+    "yesterday": "Hôm qua",
+    "daysAgo": "{{count}} ngày trước",
+    "open": "Mở",
+    "delete": "Xóa"
+  },
+  "deleteDialog": {
+    "title": "Xóa Dự Án?",
+    "message": "Hành động này không thể hoàn tác. Dự án sẽ bị xóa vĩnh viễn khỏi bộ nhớ trình duyệt của bạn.",
+    "cancel": "Hủy",
+    "delete": "Xóa"
+  },
+  "footer": {
+    "tagline": "Hubs Image — Thiết kế đồ họa chuyên nghiệp ngay trên trình duyệt",
+    "offline": "100% ngoại tuyến • Không cần tài khoản"
+  },
+  "language": {
+    "switch": "Ngôn ngữ",
+    "en": "English",
+    "vi": "Tiếng Việt"
+  }
+}

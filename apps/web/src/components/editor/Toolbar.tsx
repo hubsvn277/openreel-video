@@ -1,4 +1,5 @@
 import React, { useCallback, useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import {
   Search,
   Command,
@@ -41,6 +42,7 @@ import { ScreenRecorder } from "./ScreenRecorder";
 import { HistoryPanel } from "./inspector/HistoryPanel";
 import { ProjectSwitcher } from "./ProjectSwitcher";
 import { SettingsDialog } from "./settings/SettingsDialog";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 import { toast } from "../../stores/notification-store";
 import { useSettingsStore } from "../../stores/settings-store";
 import { useAnalytics, AnalyticsEvents } from "../../hooks/useAnalytics";
@@ -78,6 +80,7 @@ interface ExportState {
 }
 
 export const Toolbar: React.FC = () => {
+  const { t } = useTranslation();
   const { project } = useProjectStore();
   const {
     openModal,
@@ -600,84 +603,21 @@ export const Toolbar: React.FC = () => {
             <button
               onClick={() => navigate("welcome")}
               className="flex items-center gap-3 hover:opacity-80 transition-opacity"
-              title="Back to Home"
+              title={t("toolbar.backToHome")}
             >
-              <div className="w-8 h-8 group">
-                <svg
-                  viewBox="0 0 490 490"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="w-full h-full text-primary group-hover:scale-110 transition-transform duration-300"
-                >
-                  <path
-                    d="M245 24.5C123.223 24.5 24.5 123.223 24.5 245s98.723 220.5 220.5 220.5 220.5-98.723 220.5-220.5S366.777 24.5 245 24.5Z"
-                    stroke="currentColor"
-                    strokeWidth="30.625"
-                    className="opacity-100"
-                  />
-                  <g className="origin-center group-hover:rotate-90 transition-transform duration-500 ease-out">
-                    <path
-                      d="M245 98v73.5"
-                      stroke="currentColor"
-                      strokeWidth="24.5"
-                      strokeLinecap="round"
-                    />
-                    <path
-                      d="M392 245h-73.5"
-                      stroke="currentColor"
-                      strokeWidth="24.5"
-                      strokeLinecap="round"
-                    />
-                    <path
-                      d="M245 392v-73.5"
-                      stroke="currentColor"
-                      strokeWidth="24.5"
-                      strokeLinecap="round"
-                    />
-                    <path
-                      d="M98 245h73.5"
-                      stroke="currentColor"
-                      strokeWidth="24.5"
-                      strokeLinecap="round"
-                    />
-                    <path
-                      d="m348.941 141.059-51.965 51.965"
-                      stroke="currentColor"
-                      strokeWidth="24.5"
-                      strokeLinecap="round"
-                    />
-                    <path
-                      d="m348.941 348.941-51.965-51.965"
-                      stroke="currentColor"
-                      strokeWidth="24.5"
-                      strokeLinecap="round"
-                    />
-                    <path
-                      d="m141.059 348.941 51.965-51.965"
-                      stroke="currentColor"
-                      strokeWidth="24.5"
-                      strokeLinecap="round"
-                    />
-                    <path
-                      d="m141.059 141.059 51.965 51.965"
-                      stroke="currentColor"
-                      strokeWidth="24.5"
-                      strokeLinecap="round"
-                    />
-                  </g>
-                  <path
-                    d="M294 245a49 49 0 0 1-49 49 49 49 0 0 1-49-49 49 49 0 0 1 98 0"
-                    fill="currentColor"
-                    className="group-hover:fill-white transition-colors duration-300"
-                  />
-                </svg>
+              <div className="w-8 h-8">
+                <img
+                  src="/logo.svg"
+                  alt="Logo"
+                  className="w-full h-full object-contain"
+                />
               </div>
               <span className="text-lg font-medium text-text-primary tracking-wide hidden lg:block">
-                Open Reel
+                {t("toolbar.appName")}
               </span>
             </button>
           </TooltipTrigger>
-          <TooltipContent>Back to Home</TooltipContent>
+          <TooltipContent>{t("toolbar.backToHome")}</TooltipContent>
         </Tooltip>
         <div className="h-6 w-px bg-border hidden md:block" />
         <ProjectSwitcher />
@@ -715,8 +655,8 @@ export const Toolbar: React.FC = () => {
             }`}
           >
             {hasSelectedClip
-              ? "Search effects for selected clip..."
-              : "Search tools, effects, or ask AI..."}
+              ? t("toolbar.searchEffects")
+              : t("toolbar.searchTools")}
           </span>
           <div className="flex items-center gap-1.5 px-2 py-0.5 rounded border border-border bg-background-tertiary">
             <Command size={10} className="text-text-muted" />
@@ -737,16 +677,16 @@ export const Toolbar: React.FC = () => {
           <DropdownMenuContent align="end" className="w-56">
             <DropdownMenuItem onClick={handleStartTour} className="gap-2">
               <Play size={14} />
-              <span>Editor Tour</span>
+              <span>{t("toolbar.editorTour")}</span>
             </DropdownMenuItem>
             <DropdownMenuItem onClick={handleStartMoGraphTour} className="gap-2">
               <Sparkles size={14} className="text-purple-400" />
-              <span>Animation & Effects Tour</span>
+              <span>{t("toolbar.animationTour")}</span>
             </DropdownMenuItem>
             <DropdownMenuSeparator />
             <DropdownMenuItem className="gap-2 text-text-muted">
               <Command size={14} />
-              <span>Press ? for shortcuts</span>
+              <span>{t("toolbar.shortcutsHint")}</span>
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
@@ -770,6 +710,8 @@ export const Toolbar: React.FC = () => {
             <p>Theme: {themeMode}</p>
           </TooltipContent>
         </Tooltip>
+
+        <LanguageSwitcher />
 
         <Tooltip>
           <TooltipTrigger asChild>

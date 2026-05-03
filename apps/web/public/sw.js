@@ -13,12 +13,14 @@
 const CACHE_NAME = "openreel-v1";
 const STATIC_CACHE_NAME = "openreel-static-v1";
 const DYNAMIC_CACHE_NAME = "openreel-dynamic-v1";
+const APP_BASE = self.location.pathname.replace(/sw\.js$/, "");
+const APP_SHELL = `${APP_BASE}index.html`;
 
 /**
  * Static assets to cache on install
  * These are the core application files needed for offline functionality
  */
-const STATIC_ASSETS = ["/", "/index.html", "/manifest.json"];
+const STATIC_ASSETS = [APP_BASE, APP_SHELL, `${APP_BASE}manifest.json`];
 
 /**
  * Patterns for assets that should be cached dynamically
@@ -190,7 +192,7 @@ self.addEventListener("fetch", (event) => {
               return cachedResponse;
             }
             // Fall back to index.html for SPA routing
-            return caches.match("/index.html");
+            return caches.match(APP_SHELL);
           });
         })
     );

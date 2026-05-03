@@ -1,0 +1,53 @@
+{
+  "header": {
+    "appName": "Hubs Image",
+    "appDesc": "Professional Graphic Design Editor",
+    "openProject": "Open Project"
+  },
+  "newProject": {
+    "title": "Start a new project",
+    "customSize": "Custom Size",
+    "customSizeDesc": "Set dimensions",
+    "customDimensions": "Custom Dimensions",
+    "widthPx": "Width (px)",
+    "heightPx": "Height (px)",
+    "createDesign": "Create Design"
+  },
+  "categories": {
+    "all": "All",
+    "socialMedia": "Social Media",
+    "presentation": "Presentation",
+    "print": "Print",
+    "desktop": "Desktop",
+    "mobile": "Mobile",
+    "logo": "Logo"
+  },
+  "recentProjects": {
+    "title": "Recent Projects",
+    "noProjects": "No recent projects",
+    "noProjectsHint": "Create a new project to get started",
+    "justNow": "Just now",
+    "minutesAgo": "{{count}} minutes ago",
+    "oneHourAgo": "1 hour ago",
+    "hoursAgo": "{{count}} hours ago",
+    "yesterday": "Yesterday",
+    "daysAgo": "{{count}} days ago",
+    "open": "Open",
+    "delete": "Delete"
+  },
+  "deleteDialog": {
+    "title": "Delete Project?",
+    "message": "This action cannot be undone. The project will be permanently deleted from your browser storage.",
+    "cancel": "Cancel",
+    "delete": "Delete"
+  },
+  "footer": {
+    "tagline": "Hubs Image — Professional graphic design in your browser",
+    "offline": "100% offline • No account required"
+  },
+  "language": {
+    "switch": "Language",
+    "en": "English",
+    "vi": "Tiếng Việt"
+  }
+}

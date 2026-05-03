@@ -1,0 +1,51 @@
+{
+  "toolbar": {
+    "backToHome": "Back to Home",
+    "appName": "Video Editor",
+    "searchEffects": "Search effects for selected clip...",
+    "searchTools": "Search tools, effects, or ask AI...",
+    "editorTour": "Editor Tour",
+    "animationTour": "Animation & Effects Tour",
+    "shortcutsHint": "Press ? for shortcuts",
+    "settings": "Settings & API Keys",
+    "projectJson": "Project JSON - Export/Import",
+    "theme": "Theme: {{mode}}"
+  },
+  "welcome": {
+    "tagline": "From idea to export.",
+    "taglineSub": "In your browser.",
+    "formatHint": "Pick a format and start creating. You can change this anytime.",
+    "startCreating": "Start creating",
+    "browseTemplates": "Browse templates",
+    "recentProjects": "Recent projects",
+    "openEditor": "Open editor",
+    "skipOnStartup": "Skip on startup",
+    "pressEscToSkip": "to skip",
+    "back": "Back",
+    "templates": "Templates",
+    "recentTitle": "Recent Projects"
+  },
+  "formats": {
+    "vertical": "Vertical",
+    "verticalDesc": "TikTok, Reels, Shorts",
+    "horizontal": "Horizontal",
+    "horizontalDesc": "YouTube, Vimeo, Web",
+    "square": "Square",
+    "squareDesc": "Instagram, Facebook"
+  },
+  "recentProjects": {
+    "loading": "Loading recent projects...",
+    "noProjects": "No Recent Projects",
+    "noProjectsHint": "Your recently opened projects will appear here. Start a new project or use a template to get started.",
+    "count": "Recent Projects ({{count}})",
+    "today": "Today",
+    "yesterday": "Yesterday",
+    "daysAgo": "{{count}} days ago",
+    "weeksAgo": "{{count}} weeks ago"
+  },
+  "language": {
+    "switch": "Language",
+    "en": "English",
+    "vi": "Tiếng Việt"
+  }
+}

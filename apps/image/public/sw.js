@@ -1,8 +1,10 @@
 const CACHE_NAME = 'openreel-image-v1';
+const APP_BASE = self.location.pathname.replace(/sw\.js$/, '');
+const APP_SHELL = `${APP_BASE}index.html`;
 const STATIC_ASSETS = [
-  '/',
-  '/index.html',
-  '/manifest.json',
+  APP_BASE,
+  APP_SHELL,
+  `${APP_BASE}manifest.json`,
 ];
 
 self.addEventListener('install', (event) => {

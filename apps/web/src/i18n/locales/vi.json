@@ -1,0 +1,51 @@
+{
+  "toolbar": {
+    "backToHome": "Về Trang Chủ",
+    "appName": "Video Editor",
+    "searchEffects": "Tìm kiếm hiệu ứng cho clip đã chọn...",
+    "searchTools": "Tìm công cụ, hiệu ứng hoặc hỏi AI...",
+    "editorTour": "Hướng dẫn Editor",
+    "animationTour": "Hướng dẫn Hoạt ảnh & Hiệu ứng",
+    "shortcutsHint": "Nhấn ? để xem phím tắt",
+    "settings": "Cài đặt & Khóa API",
+    "projectJson": "JSON Dự án - Xuất/Nhập",
+    "theme": "Giao diện: {{mode}}"
+  },
+  "welcome": {
+    "tagline": "Từ ý tưởng đến xuất video.",
+    "taglineSub": "Ngay trên trình duyệt.",
+    "formatHint": "Chọn định dạng và bắt đầu sáng tạo. Bạn có thể thay đổi bất cứ lúc nào.",
+    "startCreating": "Bắt đầu tạo",
+    "browseTemplates": "Xem mẫu",
+    "recentProjects": "Dự án gần đây",
+    "openEditor": "Mở trình chỉnh sửa",
+    "skipOnStartup": "Bỏ qua khi khởi động",
+    "pressEscToSkip": "để bỏ qua",
+    "back": "Quay lại",
+    "templates": "Mẫu",
+    "recentTitle": "Dự án Gần Đây"
+  },
+  "formats": {
+    "vertical": "Dọc",
+    "verticalDesc": "TikTok, Reels, Shorts",
+    "horizontal": "Ngang",
+    "horizontalDesc": "YouTube, Vimeo, Web",
+    "square": "Vuông",
+    "squareDesc": "Instagram, Facebook"
+  },
+  "recentProjects": {
+    "loading": "Đang tải dự án gần đây...",
+    "noProjects": "Chưa Có Dự Án Nào",
+    "noProjectsHint": "Các dự án bạn đã mở gần đây sẽ hiển thị ở đây. Hãy tạo dự án mới hoặc dùng mẫu có sẵn.",
+    "count": "Dự Án Gần Đây ({{count}})",
+    "today": "Hôm nay",
+    "yesterday": "Hôm qua",
+    "daysAgo": "{{count}} ngày trước",
+    "weeksAgo": "{{count}} tuần trước"
+  },
+  "language": {
+    "switch": "Ngôn ngữ",
+    "en": "English",
+    "vi": "Tiếng Việt"
+  }
+}
